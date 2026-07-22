@@ -16,6 +16,7 @@ html{
 body{
     background:#0F172A;
     color:#F8FAFC;
+    overflow-x:hidden;
 }
 .navbar{
 
@@ -133,11 +134,16 @@ body{
 
 .hero-left h1{
 
-    font-size:72px;
+    font-size:74px;
 
     line-height:1.1;
 
+    font-weight:800;
+
+    letter-spacing:1px;
+
     margin-bottom:15px;
+
 }
 
 .hero-left span{
@@ -199,9 +205,10 @@ body{
 
 .btn-primary:hover{
 
-    transform:translateY(-5px);
+    transform:translateY(-5px) scale(1.03);
 
-    box-shadow:0 15px 30px rgba(59,130,246,.35);
+    box-shadow:0 15px 40px rgba(59,130,246,.45);
+
 }
 
 .btn-secondary{
@@ -215,12 +222,13 @@ body{
 
     background:#3B82F6;
 
-    transform:translateY(-5px);
+    transform:translateY(-5px) scale(1.03);
+
 }
 
 .hero-right img{
 
-    width:420px;
+    width:360px;
 
     border-radius:50%;
 
@@ -234,4 +242,80 @@ body{
 .hero-right img:hover{
 
     transform:scale(1.05);
+}
+.background-blur{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(120px);
+    z-index:-1;
+}
+
+.blur1{
+    width:350px;
+    height:350px;
+    background:#2563EB;
+    top:-100px;
+    left:-100px;
+    opacity:.25;
+}
+
+.blur2{
+    width:450px;
+    height:450px;
+    background:#06B6D4;
+    bottom:-150px;
+    right:-150px;
+    opacity:.15;
+}
+@keyframes floatImage{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-18px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+
+.hero-right img{
+
+    animation:floatImage 5s ease-in-out infinite;
+
+}
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(60px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.hero-left{
+
+    animation:fadeUp 1s ease forwards;
+
+}
+
+.hero-right{
+
+    animation:fadeUp 1.2s ease forwards;
+
 }
