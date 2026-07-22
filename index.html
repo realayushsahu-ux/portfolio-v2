@@ -6,10 +6,12 @@
     <title>Ayush Sahu | Portfolio</title>
 
     <link rel="stylesheet" href="style.css">
-    
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
 </head>
 <body>
+
+    <div class="cursor-glow"></div>
 
     <div class="loader">
 
@@ -36,7 +38,7 @@
 
         <div class="nav-links">
 
-            <a href="#home">Home</a>
+            <a href="#home" class="active">Home</a>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
@@ -120,7 +122,11 @@
 
     </div>
 
-    <div class="about" id="about"></div>
+    <div class="about" id="about" data-aos="fade-up">
+
+        <h1>About Me</h1>
+
+    </div>
 
     <div class="skills" id="skills">
 
@@ -144,6 +150,7 @@
 
     </div>
 
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="script.js"></script>
 
