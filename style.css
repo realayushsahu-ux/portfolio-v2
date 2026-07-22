@@ -257,6 +257,7 @@ body{
     top:-100px;
     left:-100px;
     opacity:.25;
+    animation:moveOne 18s ease-in-out infinite;
 }
 
 .blur2{
@@ -266,6 +267,7 @@ body{
     bottom:-150px;
     right:-150px;
     opacity:.15;
+      animation:moveTwo 22s ease-in-out infinite;
 }
 @keyframes floatImage{
 
@@ -367,4 +369,48 @@ body{
 
     font-weight:700;
 
+}
+@keyframes moveOne{
+
+    0%{
+        transform:translate(0,0);
+    }
+
+    50%{
+        transform:translate(80px,60px);
+    }
+
+    100%{
+        transform:translate(0,0);
+    }
+
+}
+
+@keyframes moveTwo{
+
+    0%{
+        transform:translate(0,0);
+    }
+
+    50%{
+        transform:translate(-80px,-70px);
+    }
+
+    100%{
+        transform:translate(0,0);
+    }
+
+}
+#progress-bar{
+    position:fixed;
+    top:0;
+    left:0;
+
+    width:0%;
+
+    height:4px;
+
+    background:linear-gradient(90deg,#3B82F6,#38BDF8);
+
+    z-index:99999;
 }

@@ -17,10 +17,10 @@ const typed = new Typed(".typing",{
 
     strings:[
         "Aspiring Full Stack Developer",
-        "Frontend Developer",
-        "BCA Student",
+        "A Tech Guy!",
+        "Software Developer",
         "Problem Solver",
-        "Lifelong Learner"
+        "Work with Artificial Intelligence"
     ],
 
     typeSpeed:70,
@@ -30,5 +30,19 @@ const typed = new Typed(".typing",{
     backDelay:1500,
 
     loop:true
+
+});
+window.addEventListener("scroll",()=>{
+
+    const scrollTop = document.documentElement.scrollTop;
+
+    const scrollHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+
+    const percentage = (scrollTop/scrollHeight)*100;
+
+    document.getElementById("progress-bar").style.width =
+        percentage + "%";
 
 });
