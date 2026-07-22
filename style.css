@@ -7,6 +7,8 @@
     padding:0;
     box-sizing:border-box;
     font-family:'Poppins',sans-serif;
+    cursor: none !important;
+
 }
 
 html{
@@ -14,9 +16,12 @@ html{
 }
 
 body{
-    background:#0F172A;
+    background:
+    radial-gradient(circle at top left,#172554 0%,#0F172A 35%,#020617 100%);
     color:#F8FAFC;
     overflow-x:hidden;
+    cursor:none;
+
 }
 .navbar{
 
@@ -537,4 +542,28 @@ body{
 
     box-shadow:0 10px 30px rgba(0,0,0,.35);
 
+}
+.cursor{
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    width: 30px;
+    height: 30px;
+
+    border: 2px solid #38BDF8;
+    border-radius: 50%;
+
+    background: transparent;
+
+    box-shadow:
+        0 0 10px #38BDF8,
+        0 0 20px #38BDF8,
+        0 0 40px rgba(56,189,248,.5);
+
+    pointer-events: none;
+
+    z-index: 999999999;
+
+    transform: translate(-50%,-50%);
 }
