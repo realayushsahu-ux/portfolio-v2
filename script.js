@@ -13,3 +13,22 @@ window.addEventListener("load", () => {
     },900);
 
 });
+const typed = new Typed(".typing",{
+
+    strings:[
+        "Aspiring Full Stack Developer",
+        "Frontend Developer",
+        "BCA Student",
+        "Problem Solver",
+        "Lifelong Learner"
+    ],
+
+    typeSpeed:70,
+
+    backSpeed:45,
+
+    backDelay:1500,
+
+    loop:true
+
+});
