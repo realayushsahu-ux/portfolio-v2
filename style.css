@@ -620,12 +620,18 @@ body{
 
     margin-top:10px;
 
+    margin-bottom: 20px;
+
     font-weight:700;
 
     position:relative;
 
 }
+.section-title span{
 
+    color:#3B82F6;
+
+}
 .section-title h2::after{
 
     content:"";
@@ -1095,5 +1101,22 @@ body{
     left:0;
 
     color:#3B82F6;
+
+}
+.skills{
+
+    padding:120px 10%;
+
+    position:relative;
+
+}
+
+.skills-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:35px;
 
 }
