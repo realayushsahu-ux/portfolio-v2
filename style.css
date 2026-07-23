@@ -1192,3 +1192,18 @@ body{
     transform:translateY(-3px);
 
 }
+.projects{
+
+    padding:120px 10%;
+
+}
+
+.project-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(380px,1fr));
+
+    gap:35px;
+
+}
