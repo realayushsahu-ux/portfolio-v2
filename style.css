@@ -763,3 +763,60 @@ body{
     transform:translateY(-4px);
 
 }
+.timeline{
+
+    margin-top:50px;
+
+    border-left:2px solid #3B82F6;
+
+    padding-left:35px;
+
+}
+
+.timeline-item{
+
+    position:relative;
+
+    margin-bottom:35px;
+
+}
+
+.timeline-item::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:14px;
+
+    height:14px;
+
+    background:#3B82F6;
+
+    border-radius:50%;
+
+    left:-43px;
+
+    top:6px;
+
+    box-shadow:0 0 20px #3B82F6;
+
+}
+
+.timeline-item h4{
+
+    color:#3B82F6;
+
+    margin-bottom:8px;
+
+    font-size:20px;
+
+}
+
+.timeline-item p{
+
+    color:#CBD5E1;
+
+    line-height:1.7;
+
+}
