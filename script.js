@@ -108,10 +108,15 @@ const cursor = document.querySelector(".cursor");
 
 document.addEventListener("mousemove", function(e){
 
-    cursor.style.left = e.clientX + "px";
-    cursor.style.top = e.clientY + "px";
+    mouseX = e.clientX;
+    mouseY = e.clientY;
 
 });
+let mouseX = 0;
+let mouseY = 0;
+
+let currentX = 0;
+let currentY = 0;
 function animateCursor(){
 
     currentX += (mouseX - currentX) * 0.15;
@@ -126,7 +131,15 @@ function animateCursor(){
 
 animateCursor();
 
+const hoverElements = document.querySelectorAll(
+    "a, button, .btn, .skill-card, .project-card, .contact-card"
+);
+
 hoverElements.forEach(item=>{
+
+    const hoverElements = document.querySelectorAll(
+        "a, button, .btn, .project-card, .contact-card, .skill-card"
+    );      
 
     item.addEventListener("mouseenter",()=>{
 
@@ -162,5 +175,56 @@ document.addEventListener("mousedown",()=>{
 document.addEventListener("mouseup",()=>{
 
     cursor.style.transform="translate(-50%,-50%) scale(1)";
+
+});
+const menuToggle = document.querySelector(".menu-toggle");
+const mobileNav = document.querySelector(".nav-links");
+
+if(menuToggle && mobileNav){
+
+    menuToggle.addEventListener("click", () => {
+
+        mobileNav.classList.toggle("active");
+
+        menuToggle.innerHTML = mobileNav.classList.contains("active")
+            ? '<i class="fa-solid fa-xmark"></i>'
+            : '<i class="fa-solid fa-bars"></i>';
+
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            mobileNav.classList.remove("active");
+
+            menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+
+        });
+
+    });
+
+}
+menuToggle.addEventListener("click", () => {
+
+    mobileNav.classList.toggle("active");
+
+    menuToggle.innerHTML = mobileNav.classList.contains("active")
+
+        ? '<i class="fa-solid fa-xmark"></i>'
+
+        : '<i class="fa-solid fa-bars"></i>';
+
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        mobileNav.classList.remove("active");
+
+        menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+
+    });
 
 });

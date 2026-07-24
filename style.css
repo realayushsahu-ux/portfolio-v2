@@ -1886,91 +1886,65 @@ body{
 @media (max-width:768px){
 .navbar{
 
-    flex-direction:column;
+    padding:18px 6%;
 
-    gap:20px;
+    position:relative;
 
 }
 
 .nav-links{
 
-    flex-wrap:wrap;
+    position:absolute;
 
-    justify-content:center;
+    top:100%;
 
-    gap:20px;
-
-}
-
-.hero{
-
-    padding-top:170px;
-
-}
-
-.hero h1{
-
-    font-size:48px;
-
-}
-
-.hero h2{
-
-    font-size:24px;
-
-}
-
-.hero-description{
-
-    font-size:16px;
-
-}
-
-.hero-buttons{
-
-    flex-direction:column;
+    left:0;
 
     width:100%;
 
-}
+    background:#0B1120;
 
-.hero-buttons a{
-
-    width:100%;
-
-    text-align:center;
-
-}
-
-.about-image img{
-
-    width:280px;
-
-}
-
-.contact-title{
-
-    font-size:36px;
-
-}
-
-.contact-status{
-
-    max-width:100%;
-
-}
-
-.footer-middle h2{
-
-    font-size:28px;
-
-}
-
-.footer-bottom{
+    display:flex;
 
     flex-direction:column;
 
-    text-align:center;
+    align-items:center;
+
+    gap:25px;
+
+    padding:30px 0;
+
+    transform:translateY(-20px);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.35s;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+.nav-links.active{
+
+    transform:translateY(0);
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+.resume-btn{
+
+    display:none;
+
+}
+
+.menu-toggle{
+
+    display:block;
 
 }
 }
@@ -2032,4 +2006,15 @@ body{
     padding:60px 5% 30px;
 
 }
+}
+.menu-toggle{
+    display:none;
+    font-size:28px;
+    color:#fff;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.menu-toggle:hover{
+    color:#3B82F6;
 }
