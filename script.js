@@ -177,54 +177,68 @@ document.addEventListener("mouseup",()=>{
     cursor.style.transform="translate(-50%,-50%) scale(1)";
 
 });
-const menuToggle = document.querySelector(".menu-toggle");
-const mobileNav = document.querySelector(".nav-links");
 
-if(menuToggle && mobileNav){
+const menuBtn = document.querySelector(".menu-btn");
+const mobileMenu = document.querySelector(".mobile-menu");
+const menuOverlay = document.querySelector(".menu-overlay");
+const menuIcon = menuBtn ? menuBtn.querySelector("i") : null;
 
-    menuToggle.addEventListener("click", () => {
+function openMenu() {
 
-        mobileNav.classList.toggle("active");
+    mobileMenu.classList.add("show");
+    menuOverlay.classList.add("show");
 
-        menuToggle.innerHTML = mobileNav.classList.contains("active")
-            ? '<i class="fa-solid fa-xmark"></i>'
-            : '<i class="fa-solid fa-bars"></i>';
+    document.body.style.overflow = "hidden";
+
+    menuIcon.classList.remove("fa-bars");
+    menuIcon.classList.add("fa-xmark");
+
+}
+
+function closeMenu() {
+
+    mobileMenu.classList.remove("show");
+    menuOverlay.classList.remove("show");
+
+    document.body.style.overflow = "";
+
+    menuIcon.classList.remove("fa-xmark");
+    menuIcon.classList.add("fa-bars");
+
+}
+
+if(menuBtn && mobileMenu && menuOverlay){
+
+    menuBtn.addEventListener("click", () => {
+
+        if(mobileMenu.classList.contains("show")){
+
+            closeMenu();
+
+        }else{
+
+            openMenu();
+
+        }
 
     });
 
-    document.querySelectorAll(".nav-links a").forEach(link => {
+    menuOverlay.addEventListener("click", closeMenu);
 
-        link.addEventListener("click", () => {
+    document.querySelectorAll(".mobile-menu a").forEach(link => {
 
-            mobileNav.classList.remove("active");
+        link.addEventListener("click", closeMenu);
 
-            menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+    });
 
-        });
+    document.addEventListener("keydown", (e)=>{
+
+        if(e.key==="Escape"){
+
+            closeMenu();
+
+        }
 
     });
 
 }
-menuToggle.addEventListener("click", () => {
-
-    mobileNav.classList.toggle("active");
-
-    menuToggle.innerHTML = mobileNav.classList.contains("active")
-
-        ? '<i class="fa-solid fa-xmark"></i>'
-
-        : '<i class="fa-solid fa-bars"></i>';
-
-});
-
-document.querySelectorAll(".nav-links a").forEach(link => {
-
-    link.addEventListener("click", () => {
-
-        mobileNav.classList.remove("active");
-
-        menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
-
-    });
-
-});
