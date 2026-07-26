@@ -1902,6 +1902,10 @@ body{
 
     }
 
+    .nav-links{
+        display:none !important;
+    }
+
     .hero{
 
         flex-direction:column-reverse;
