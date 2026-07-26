@@ -104,7 +104,6 @@ AOS.init({
     easing:"ease-out-cubic"
 
 });
-const cursor = document.querySelector(".cursor");
 
 document.addEventListener("mousemove", function(e){
 
@@ -177,6 +176,7 @@ document.addEventListener("mouseup",()=>{
     cursor.style.transform="translate(-50%,-50%) scale(1)";
 
 });
+
 
 const menuBtn = document.querySelector(".menu-btn");
 const mobileMenu = document.querySelector(".mobile-menu");

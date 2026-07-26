@@ -1888,6 +1888,12 @@ body{
 
 /* Large Mobile */
 @media (max-width:768px){
+
+    .cursor{
+
+        display:none;
+
+    }
     .hero{
 
         flex-direction:column-reverse;
