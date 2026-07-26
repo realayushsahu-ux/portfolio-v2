@@ -13,6 +13,7 @@
 
 html{
     scroll-behavior:smooth;
+    overflow-x: hidden;
 }
 
 body{
@@ -1894,6 +1895,13 @@ body{
         display:none;
 
     }
+
+    .menu-btn{
+
+        display:flex;
+
+    }
+
     .hero{
 
         flex-direction:column-reverse;
@@ -1961,11 +1969,18 @@ body{
     }
 
     .menu-btn{
-
-        display:flex !important;
-
-    }
-
+    display:flex !important;
+    position:fixed !important;
+    top:15px;
+    right:15px;
+    width:60px;
+    height:60px;
+    background: !important;
+    border:4px solid yellow;
+    z-index:99999;
+    align-items:center;
+    justify-content:center;
+}
     .hero-buttons{
 
         flex-direction:column;

@@ -116,7 +116,12 @@ let mouseY = 0;
 
 let currentX = 0;
 let currentY = 0;
+
+const cursor = document.querySelector(".cursor");
+
 function animateCursor(){
+
+    if (!cursor) return;
 
     currentX += (mouseX - currentX) * 0.15;
     currentY += (mouseY - currentY) * 0.15;
@@ -127,18 +132,14 @@ function animateCursor(){
     requestAnimationFrame(animateCursor);
 
 }
-
-animateCursor();
-
+if (window.matchMedia("(pointer: fine)").matches) {
+    animateCursor();
+}
 const hoverElements = document.querySelectorAll(
     "a, button, .btn, .skill-card, .project-card, .contact-card"
 );
 
-hoverElements.forEach(item=>{
-
-    const hoverElements = document.querySelectorAll(
-        "a, button, .btn, .project-card, .contact-card, .skill-card"
-    );      
+hoverElements.forEach(item=>{      
 
     item.addEventListener("mouseenter",()=>{
 
