@@ -105,12 +105,6 @@ AOS.init({
 
 });
 
-document.addEventListener("mousemove", function(e){
-
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-
-});
 let mouseX = 0;
 let mouseY = 0;
 
@@ -119,6 +113,12 @@ let currentY = 0;
 
 const cursor = document.querySelector(".cursor");
 
+document.addEventListener("mousemove", function(e){
+
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+});
 function animateCursor(){
 
     if (!cursor) return;
@@ -133,51 +133,64 @@ function animateCursor(){
 
 }
 if (window.matchMedia("(pointer: fine)").matches) {
-    animateCursor();
+
+    const cursor = document.querySelector(".cursor");
+
+    if (cursor) {
+
+        function animateCursor(){
+
+            currentX += (mouseX-currentX)*0.15;
+            currentY += (mouseY-currentY)*0.15;
+
+            cursor.style.left=currentX+"px";
+            cursor.style.top=currentY+"px";
+
+            requestAnimationFrame(animateCursor);
+
+        }
+
+        animateCursor();
+
+        const hoverElements=document.querySelectorAll(
+            "a, button, .btn, .skill-card, .project-card, .contact-card"
+        );
+
+        hoverElements.forEach(item=>{
+
+            item.addEventListener("mouseenter",()=>{
+
+                cursor.style.width="55px";
+                cursor.style.height="55px";
+                cursor.style.borderColor="#60A5FA";
+
+            });
+
+            item.addEventListener("mouseleave",()=>{
+
+                cursor.style.width="22px";
+                cursor.style.height="22px";
+                cursor.style.borderColor="#38BDF8";
+
+            });
+
+        });
+
+        document.addEventListener("mousedown",()=>{
+
+            cursor.style.transform="translate(-50%,-50%) scale(.75)";
+
+        });
+
+        document.addEventListener("mouseup",()=>{
+
+            cursor.style.transform="translate(-50%,-50%) scale(1)";
+
+        });
+
+    }
+
 }
-const hoverElements = document.querySelectorAll(
-    "a, button, .btn, .skill-card, .project-card, .contact-card"
-);
-
-hoverElements.forEach(item=>{      
-
-    item.addEventListener("mouseenter",()=>{
-
-        cursor.style.width="55px";
-        cursor.style.height="55px";
-
-        cursor.style.borderColor="#60A5FA";
-
-        cursor.style.boxShadow=
-        "0 0 25px rgba(59,130,246,.9),0 0 50px rgba(59,130,246,.4)";
-
-    });
-
-    item.addEventListener("mouseleave",()=>{
-
-        cursor.style.width="22px";
-        cursor.style.height="22px";
-
-        cursor.style.borderColor="#38BDF8";
-
-        cursor.style.boxShadow=
-        "0 0 10px rgba(56,189,248,.5),0 0 20px rgba(56,189,248,.2)";
-
-    });
-
-});
-document.addEventListener("mousedown",()=>{
-
-    cursor.style.transform="translate(-50%,-50%) scale(.75)";
-
-});
-
-document.addEventListener("mouseup",()=>{
-
-    cursor.style.transform="translate(-50%,-50%) scale(1)";
-
-});
-
 
 const menuBtn = document.querySelector(".menu-btn");
 const mobileMenu = document.querySelector(".mobile-menu");
