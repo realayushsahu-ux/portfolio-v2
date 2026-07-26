@@ -59,7 +59,7 @@ body{
 
 .nav-links{
 
-    display:none !important;
+    display:flex !important;
     gap:35px;
 }
 
